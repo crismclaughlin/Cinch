@@ -4,7 +4,7 @@ A simple, procedural, non-OOP MVC framework for PHP
 
 ## Usage
 
-### Directory organization
+### Initial setup
 
 Cinch uses a strict directory structure ensuring your project is organized properly:
 
@@ -24,19 +24,24 @@ Cinch uses a strict directory structure ensuring your project is organized prope
 
 ### Controllers
 
-Controllers are located in the `controllers` directory and follow a strict naming convention. As an example: if we were to visit the url `http://example.com/foo/` then your controller would be named `FooController.php`. As for the source:
+Controllers are located in the `controllers` directory and follow a strict naming convention. As an example, if we were to visit the url `http://example.com/blog/` then your controller would be named `BlogController.php`. As for the source:
 
     <?php
-    namespace FooController;
+    namespace BlogController;
 
     function index()
     {
         echo 'Default action!';
     }
 
-    function bar()
+    function tags()
     {
-        echo 'The bar action!';
+        echo 'The tags action!';
     }
 
-In the source above you may have noticed that we have two routes declared: `index` and `bar`. Index is the default action called if no action is present in the URL. If we were to visit the url `http://example.com/foo/bar/` then the `bar` function would be called.
+    function tagged($tags)
+    {
+        echo 'The tagged action with the following parameter:' . $tags;
+    }
+
+The first thing you should have noticed is we declared a namespace `BlogController`. This namespace, which helps keep Cinch organized, must be the same name as your controller source file. Next we have declared three actions: `index`, `tags`, and `tagged`. Index is the default action and will only be called if no action is present in the URL. So, following the above example, if we visited `http://example.com/blog/` the default action would be called. If we were to visit the url `http://example.com/blog/tags/` then the `tags` function would be called. Finally if we want to pass in parameters to an action we 
