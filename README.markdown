@@ -7,15 +7,15 @@ A simple, procedural, non-OOP MVC framework for PHP
 ### Directory organization
 
     \webroot
-    |
-    |--\cinch
-    |  |
-    |  |--Config.php
-    |  |
-    |  |--Load.php
-    |  |
-    |  |--Request.php
-    |  |
-    |  |--Router.php
-    |  |
-    |  |-Uri.php
+        \cinch
+            Config.php
+            Load.php
+            Request.php
+            Router.php
+            Uri.php
+        \controllers
+        \models
+        \modules
+        \views
+        .htaccess
+        index.php
