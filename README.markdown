@@ -51,10 +51,23 @@ The first thing you should have noticed is we declared a namespace `BlogControll
 
 ### Views
 
-Cinch uses native PHP files for its views. To load a view simply use the `Load` namespace and the `view` function:
+Cinch uses native PHP files for its views. Views are located in the `views` directory and must end with `View.php`.  As an example, if we wanted to load the `index` view our view file would be named `IndexView.php`. To load a view simply use the `Load` namespace and the `view` function:
 
     <?php
     function index()
     {
         \Load\view('index');
     }
+
+To pass data between your controller and view you can use the view functions second argument:
+
+    <?php
+    function index()
+    {
+        \Load\view('index', array('message', 'Hello, world!'));
+    }
+
+This data can then be accessed from your view:
+
+    <?php
+    echo $message;
